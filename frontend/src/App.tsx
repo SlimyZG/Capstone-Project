@@ -10,9 +10,9 @@ import AdminDashboard from './pages/AdminDashboard';
 import Navbar from './components/Navbar';
 
 // ─── Protected Route ─────────────────────────────────────────────────────────
-const ProtectedRoute: React.FC<{ 
-  user: any; 
-  requiredRole: string; 
+const ProtectedRoute: React.FC<{
+  user: any;
+  requiredRole: string;
   element: React.ReactNode;
 }> = ({ user, requiredRole, element }) => {
   if (!user) return <Navigate to="/login" replace />;
@@ -72,7 +72,7 @@ const App: React.FC = () => {
             }
           />
 
-          {/* Student */}
+          {/* Student Dashboard*/}
           <Route
             path="/student"
             element={

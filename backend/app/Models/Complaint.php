@@ -26,7 +26,7 @@ class Complaint extends Model
         'is_private' => 'boolean',
     ];
 
-    // ─── Status Helpers ────────────────────────────────────────────────────────
+    // ─── Status Helpers 
 
     public static array $statuses = ['pending', 'investigating', 'resolved', 'closed'];
 
