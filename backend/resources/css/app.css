@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Font ─────────────────────────────────────────────────────────── */
+@layer base {
+    :root {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    * { @apply border-slate-700; }
+
+    html { scroll-behavior: smooth; }
+
+    body { @apply bg-slate-950 text-slate-100; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { @apply bg-slate-900; }
+    ::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-700; }
+    ::-webkit-scrollbar-thumb:hover { @apply bg-slate-500; }
+}
+
+/* ── Design System Components ────────────────────────────────────────────── */
+@layer components {
+
+    /* ── Buttons ── */
+    .btn-primary {
+        @apply inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white
+               shadow-lg shadow-indigo-500/25 transition-all duration-200
+               hover:bg-indigo-500 hover:shadow-indigo-500/40 hover:-translate-y-0.5
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-950
+               active:translate-y-0;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center gap-2 rounded-lg bg-slate-800 px-4 py-2.5 text-sm font-semibold text-slate-200
+               border border-slate-700 transition-all duration-200
+               hover:bg-slate-700 hover:text-white hover:-translate-y-0.5
+               focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-slate-950;
+    }
+
+    .btn-danger {
+        @apply inline-flex items-center gap-2 rounded-lg bg-rose-600/20 px-4 py-2.5 text-sm font-semibold text-rose-400
+               border border-rose-700/50 transition-all duration-200
+               hover:bg-rose-600 hover:text-white hover:-translate-y-0.5
+               focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 focus:ring-offset-slate-950;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center gap-2 rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300
+               transition-all duration-200 hover:border-indigo-500 hover:text-white hover:bg-indigo-500/10;
+    }
+
+    .btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    /* ── Cards ── */
+    .card {
+        @apply rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm
+               shadow-xl shadow-black/20 transition-all duration-200;
+    }
+
+    .card-hover {
+        @apply card hover:border-indigo-500/40 hover:shadow-indigo-500/10 hover:-translate-y-0.5 cursor-pointer;
+    }
+
+    .card-body {
+        @apply p-6;
+    }
+
+    /* ── Form Elements ── */
+    .form-label {
+        @apply block text-sm font-medium text-slate-300 mb-1.5;
+    }
+
+    .form-input {
+        @apply w-full rounded-lg border border-slate-700 bg-slate-800/80 px-4 py-2.5 text-sm text-slate-100
+               placeholder-slate-500 transition-colors duration-150
+               focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20;
+    }
+
+    .form-textarea {
+        @apply form-input resize-none min-h-[120px];
+    }
+
+    .form-select {
+        @apply form-input appearance-none pr-10 cursor-pointer;
+    }
+
+    .form-error {
+        @apply mt-1.5 text-xs text-rose-400;
+    }
+
+    .form-group {
+        @apply space-y-1;
+    }
+
+    /* ── Navigation ── */
+    .nav-link {
+        @apply rounded-lg px-3 py-2 text-sm font-medium text-slate-400 transition-all duration-150
+               hover:bg-slate-800 hover:text-slate-100;
+    }
+
+    .nav-link-active {
+        @apply bg-slate-800 text-white;
+    }
+
+    .dropdown-item {
+        @apply block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors;
+    }
+
+    /* ── Status Badges ── */
+    .badge {
+        @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide;
+    }
+
+    .badge-pending {
+        @apply badge bg-rose-900/50 text-rose-300 border border-rose-700/40;
+    }
+
+    .badge-investigating {
+        @apply badge bg-amber-900/50 text-amber-300 border border-amber-700/40;
+    }
+
+    .badge-resolved {
+        @apply badge bg-emerald-900/50 text-emerald-300 border border-emerald-700/40;
+    }
+
+    .badge-closed {
+        @apply badge bg-slate-700/50 text-slate-400 border border-slate-600/40;
+    }
+
+    /* ── Stat Cards ── */
+    .stat-card {
+        @apply card card-body flex flex-col gap-2;
+    }
+
+    .stat-value {
+        @apply text-3xl font-extrabold tracking-tight;
+    }
+
+    .stat-label {
+        @apply text-sm font-medium text-slate-400;
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+        @apply mb-8 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between;
+    }
+
+    .page-title {
+        @apply text-2xl font-bold tracking-tight text-white sm:text-3xl;
+    }
+
+    .page-subtitle {
+        @apply text-sm text-slate-400 mt-0.5;
+    }
+
+    /* ── Table ── */
+    .data-table {
+        @apply w-full text-sm;
+    }
+
+    .data-table thead th {
+        @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400
+               border-b border-slate-800 bg-slate-900/50;
+    }
+
+    .data-table tbody tr {
+        @apply border-b border-slate-800/50 transition-colors hover:bg-slate-800/30;
+    }
+
+    .data-table tbody td {
+        @apply px-4 py-3.5 text-slate-300;
+    }
+
+    /* ── Upvote Button ── */
+    .upvote-btn {
+        @apply flex flex-col items-center gap-1 rounded-xl border border-slate-700 bg-slate-800/60 px-3 py-2.5
+               text-slate-400 transition-all duration-200 hover:border-indigo-500 hover:text-indigo-400
+               hover:bg-indigo-500/10 hover:shadow-lg hover:shadow-indigo-500/10;
+    }
+
+    .upvote-btn.voted {
+        @apply border-indigo-500 text-indigo-400 bg-indigo-500/10;
+    }
+
+    /* ── Divider ── */
+    .divider {
+        @apply border-t border-slate-800 my-6;
+    }
+
+    /* ── Empty State ── */
+    .empty-state {
+        @apply flex flex-col items-center justify-center py-16 text-center;
+    }
+
+    .empty-state-icon {
+        @apply mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800 text-slate-500;
+    }
+
+    /* ── Alert ── */
+    .alert-info {
+        @apply rounded-lg border border-sky-700/50 bg-sky-900/30 px-4 py-3 text-sm text-sky-300;
+    }
+
+    /* ── Pagination ── */
+    .pagination-link {
+        @apply inline-flex items-center justify-center h-9 w-9 rounded-lg border border-slate-700 text-sm
+               text-slate-400 hover:border-indigo-500 hover:text-white transition-colors;
+    }
+
+    .pagination-link.active {
+        @apply bg-indigo-600 border-indigo-600 text-white;
+    }
+}
+
+/* ── Utilities ───────────────────────────────────────────────────────────── */
+@layer utilities {
+    .font-inter { font-family: 'Inter', system-ui, sans-serif; }
+
+    .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-violet-400;
+    }
+
+    .glass {
+        @apply bg-white/5 backdrop-blur-md border border-white/10;
+    }
+
+    .glow-indigo {
+        box-shadow: 0 0 40px -10px theme('colors.indigo.500');
+    }
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes slide-in {
+    from { opacity: 0; transform: translateX(100%) scale(0.9); }
+    to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+
+.animate-slide-in  { animation: slide-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.animate-fade-up   { animation: fade-up 0.5s ease-out forwards; }
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* Stagger children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
