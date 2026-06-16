@@ -72,7 +72,7 @@ const App: React.FC = () => {
             }
           />
 
-          {/* Student Dashboard*/}
+          {/* Student*/}
           <Route
             path="/student"
             element={
